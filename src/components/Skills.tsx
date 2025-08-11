@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 const Skills: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => setIsVisible(true), 300);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
   const skillCategories = [
     {
       category: 'Cloud Platforms',
@@ -59,14 +84,21 @@ const Skills: React.FC = () => {
   ];
 
   const getBarColor = (level: number) => {
-    if (level >= 90) return 'bg-gradient-to-r from-green-500 to-green-600';
-    if (level >= 80) return 'bg-gradient-to-r from-blue-500 to-blue-600';
-    if (level >= 70) return 'bg-gradient-to-r from-orange-500 to-orange-600';
+    if (level >= 90) return 'bg-gradient-to-r from-green-500 to-green-600 skill-bar-green';
+    if (level >= 80) return 'bg-gradient-to-r from-blue-500 to-blue-600 skill-bar-blue';
+    if (level >= 70) return 'bg-gradient-to-r from-orange-500 to-orange-600 skill-bar-orange';
     return 'bg-gradient-to-r from-gray-400 to-gray-500';
   };
 
+  // Debug logging
+  useEffect(() => {
+    if (isVisible) {
+      console.log('Skills animation triggered, isVisible:', isVisible);
+    }
+  }, [isVisible]);
+
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="skills" ref={sectionRef} className="py-20 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-navy dark:text-white mb-6">
@@ -96,10 +128,16 @@ const Skills: React.FC = () => {
                         {skill.level}%
                       </span>
                     </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden relative">
                       <div
-                        className={`h-full ${getBarColor(skill.level)} rounded-full transition-all duration-1000 ease-out`}
-                        style={{ width: `${skill.level}%` }}
+                        className={`h-full ${getBarColor(skill.level)} rounded-full transition-all duration-1000 ease-out absolute left-0 top-0`}
+                        style={{ 
+                          width: isVisible ? `${skill.level}%` : '0%',
+                          minWidth: isVisible && skill.level > 0 ? '2px' : '0px',
+                          backgroundColor: !isVisible ? 'transparent' : undefined
+                        }}
+                        data-skill-level={skill.level}
+                        data-skill-name={skill.name}
                       ></div>
                     </div>
                   </div>

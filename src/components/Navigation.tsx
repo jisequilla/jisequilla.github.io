@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun, Download, User } from 'lucide-react';
+import { Menu, X, Moon, Sun, User } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext';
 
 const Navigation: React.FC = () => {
@@ -66,14 +66,6 @@ const Navigation: React.FC = () => {
               >
                 {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
-              <a
-                href="/cv-jeremias-de-isequilla.pdf"
-                download
-                className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-navy hover:bg-steel-blue transition-colors duration-200"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Download CV
-              </a>
             </div>
           </div>
           
@@ -106,14 +98,6 @@ const Navigation: React.FC = () => {
                 {item.label}
               </button>
             ))}
-            <a
-              href="/cv-jeremias-de-isequilla.pdf"
-              download
-              className="inline-flex items-center px-3 py-2 text-base font-medium text-navy dark:text-orange"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Download CV
-            </a>
           </div>
         </div>
       )}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowDown, ExternalLink, Download, Mail, MapPin, Flag } from 'lucide-react';
+import { ArrowDown, ExternalLink, Mail, MapPin, Flag } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const scrollToSection = (href: string) => {
@@ -58,14 +58,6 @@ const Hero: React.FC = () => {
               <ExternalLink className="ml-2 w-5 h-5" />
             </button>
             
-            <a
-              href="/cv-jeremias-de-isequilla.pdf"
-              download
-              className="inline-flex items-center px-8 py-3 border-2 border-white text-base font-medium rounded-md text-white hover:bg-white hover:text-navy transform hover:scale-105 transition-all duration-200"
-            >
-              Download CV
-              <Download className="ml-2 w-5 h-5" />
-            </a>
             
             <button
               onClick={() => scrollToSection('#contact')}

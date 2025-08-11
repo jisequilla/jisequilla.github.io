@@ -1,8 +1,16 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "jisequilla-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Personal portfolio showcasing solutions architecture and development expertise",
+  "homepage": "https://jisequilla.github.io",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jisequilla/jisequilla.github.io.git"
+  },
+  "keywords": ["portfolio", "react", "typescript", "vite", "tailwindcss", "solutions-architect"],
+  "author": "Jeremías de Isequilla",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

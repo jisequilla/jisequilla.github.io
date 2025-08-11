@@ -57,8 +57,8 @@ const Expertise: React.FC = () => {
               key={index}
               className="group bg-gray-50 dark:bg-gray-900 p-8 rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
             >
-              <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${area.color} rounded-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                <area.icon className="w-8 h-8 text-white" />
+              <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${area.color} rounded-lg mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                <area.icon className="w-8 h-8 text-white drop-shadow-sm" style={{filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))'}} />
               </div>
               
               <h3 className="text-xl font-bold text-navy dark:text-white mb-4">

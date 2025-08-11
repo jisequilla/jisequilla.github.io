@@ -64,8 +64,8 @@ const Projects: React.FC = () => {
               <div className={`h-2 bg-gradient-to-r ${project.color}`}></div>
               
               <div className="p-8">
-                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${project.color} rounded-lg mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <project.icon className="w-8 h-8 text-white" />
+                <div className={`inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r ${project.color} rounded-lg mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <project.icon className="w-8 h-8 text-white drop-shadow-sm" style={{filter: 'drop-shadow(0 1px 2px rgba(0,0,0,0.3))'}} />
                 </div>
 
                 <h3 className="text-xl font-bold text-navy dark:text-white mb-4 group-hover:text-steel-blue dark:group-hover:text-orange transition-colors duration-300">
