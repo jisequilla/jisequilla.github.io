@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Calendar, Award, Briefcase, Code, Globe, TrendingUp } from 'lucide-react';
+import { Users, Calendar, Briefcase, Code, Globe, TrendingUp } from 'lucide-react';
 
 const About: React.FC = () => {
   const stats = [

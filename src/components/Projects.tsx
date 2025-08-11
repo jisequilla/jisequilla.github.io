@@ -1,5 +1,5 @@
 import React from 'react';
-import { Code, Database, Cloud, Smartphone, Shield, Plane } from 'lucide-react';
+import { Code, Database, Smartphone, Shield, Plane } from 'lucide-react';
 
 const Projects: React.FC = () => {
   const projects = [

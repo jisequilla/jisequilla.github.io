@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cloud, Cpu, Network, Settings, Users, TrendingUp, Layers, GitBranch } from 'lucide-react';
+import { Cloud, Network, Settings, Users, TrendingUp, Layers } from 'lucide-react';
 
 const Expertise: React.FC = () => {
   const expertiseAreas = [
